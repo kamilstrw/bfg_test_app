@@ -1,0 +1,5 @@
+export default {
+	LOAD: "QUESTIONS_LOAD",
+	VOTE: "QUESTIONS_VOTE",
+	SWAP: "QUESTIONS_SWAP"
+}

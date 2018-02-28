@@ -1,0 +1,223 @@
+@import './fonts.scss';
+
+$fontRegular: OpenSans-Bold;
+$fontSecondary: Roboto-Regular;
+$primaryColor: #ecdeb4;
+$primaryColorDarker: #b1a47f;
+$textColor: #8a7f5e; 
+$textColorDarker: #6f664d;
+
+* {
+	margin: 0;
+	padding: 0;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+body
+{
+	background: $primaryColor;
+}
+.App
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 20px;	
+	color: $textColor;
+	flex-direction: column;
+	.block
+	{
+		font-size: 20px;
+    	border: 2px solid $primaryColorDarker;
+    	border-radius: 10px;
+    	padding: 10px;
+    	box-shadow: 5px 5px 5px 0px $primaryColorDarker;
+    	margin: 20px 0;
+    	width: 100%;
+    	max-width: 750px;
+	}
+	.search
+	{
+		font-family: $fontRegular;
+		max-width: 750px;
+    	line-height: 30px;
+	}
+	.button
+	{
+		display: block;
+		cursor: pointer;
+		padding: 5px;
+		position: relative;
+		border-radius: 5px;
+		overflow: hidden;
+		border: 2px solid $textColor;
+		&::after
+		{
+			content: '';
+			position: absolute;
+			height: 100%;
+			width: 100%;
+			top: 100%;
+			left: 0;
+			z-index: -1;
+			background-color: $textColor;
+			-webkit-transition: 0.07s linear;
+			-moz-transition: 0.07s linear;
+			transition: 0.07s linear;
+		}
+		&:hover
+		{
+			color: $primaryColor;
+			&::after
+			{
+				top: 0;
+			}
+		}
+		&.inline
+		{
+			display: inline-block;
+			vertical-align: middle;
+		}
+	}
+	.datepicker
+	{
+		display: inline-block;
+		vertical-align: middle;
+		margin: 0 5px;
+	}
+	.react-datepicker
+	{
+		color: $textColor;
+		&__header
+		{
+			background-color: $primaryColorDarker;
+		}
+		&__navigation--previous
+		{
+			border-right-color: $textColor;
+		}
+		&__navigation--next
+		{
+			border-left-color: $textColor;
+		}
+		&__current-month
+		{
+			color: $textColorDarker;
+		}
+		&__day-name
+		{
+			color: $textColorDarker;
+		}
+		&__month-container
+		{
+			background-color: $primaryColor;
+		}
+		&__day
+		{
+			color: $textColor;
+			-moz-box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+			box-sizing: border-box;
+			&:hover
+			{
+				color: $textColorDarker;
+				background-color: $primaryColorDarker;
+			}
+			&--disabled
+			{
+				opacity: 0.5;
+			}
+			&--selected
+			{				
+				background-color:  $textColorDarker;
+				color: $primaryColor;
+			}
+			&--today
+			{
+				background-color: $primaryColorDarker;
+				border-radius: 0.3rem;
+			}
+		}
+	}
+	.list-item
+	{
+		text-decoration: none;
+		.question
+		{
+			font-family: $fontSecondary;
+			position: relative;
+			cursor: pointer;
+			display: flex;
+			flex-direction: column;
+			padding: 10px;
+			background-color: $primaryColor;
+			border: 2px solid $primaryColorDarker;
+			border-radius: 5px;
+			z-index: 1;
+			color: $textColor;
+			&__preview
+			{
+				display: flex;
+				flex-direction: row;
+				justify-content: flex-end;
+				align-items: center;
+				&__title
+				{
+					max-width: calc(100% - 140px);
+					overflow: hidden;
+					white-space: nowrap;
+					text-overflow: ellipsis;
+					float: left;
+					left: 10;
+					position: absolute;
+				}
+				&__score
+				{
+					background: $primaryColorDarker;
+					color: $primaryColor;
+					width: 30px;
+					height: 30px;
+					border-radius: 50%;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+				}
+				&__rate
+				{
+					font-family: $fontRegular;
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					margin-left: 20px;
+					a
+					{
+						cursor: pointer;
+						&:hover
+						{
+							color: $textColorDarker;
+							text-shadow: 1px 1px 3px $textColorDarker;
+						}
+						&.disabled
+						{
+							opacity: 0.5;
+							pointer-events: none;
+						}
+					}
+				}
+			}
+			&__fulldata
+			{
+				display: none;
+			}
+		}
+		&:focus
+		{
+			.question__fulldata
+			{
+				display: flex;
+				flex-direction: column;
+			}
+		}
+	}
+}
