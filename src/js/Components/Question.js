@@ -46,6 +46,7 @@ export default class Question extends React.Component
 	}
 	swap(val)
 	{
+		this.refs.wrap.blur();
 		this.props.swap(this.props.order, this.props.order + val);
 	}
 
@@ -53,17 +54,18 @@ export default class Question extends React.Component
 	{
 		console.log(this.props.order)
 		return(
+			<a href="#" ref="wrap" className="list-item">
 			<div className="question">
 				<div className="question__preview">
 					<div className="question__preview__title">{this.props.question.title}</div>
 					<div className="question__preview__score">{this.props.question.score}</div>
 					<div className="question__preview__rate">
-						<a onClick={this.voteFor} className={`${this.state.votedFor ? 'disabled' : ""}`}>+</a>
-						<a onClick={this.voteAgainst} className={`${this.state.votedAgainst ? 'disabled' : ""}`}>-</a>
+						<span onClick={this.voteFor} className={`${this.state.votedFor ? 'disabled' : ""}`}>+</span>
+						<span onClick={this.voteAgainst} className={`${this.state.votedAgainst ? 'disabled' : ""}`}>-</span>
 					</div>
 					<div className="question__preview__rate">
-						<a onClick={this.swapUp} className={`${this.props.order == 0 ? 'disabled' : ""}`}>&uArr;</a>
-						<a onClick={this.swapDown} className={`${this.props.order == this.props.questions.length - 1 ? 'disabled' : ""}`}>&dArr;</a>
+						<span onClick={this.swapUp} className={`${this.props.order == 0 ? 'disabled' : ""}`}>&uArr;</span>
+						<span onClick={this.swapDown} className={`${this.props.order == this.props.questions.length - 1 ? 'disabled' : ""}`}>&dArr;</span>
 					</div>
 				</div>
  				<div className="question__fulldata">
@@ -72,6 +74,7 @@ export default class Question extends React.Component
  					<div className="question__fulldata__views">Колличество просмотров: {this.props.question.view_count}</div>
  				</div>
 			</div>
+			</a>
 		)
 	}
 }

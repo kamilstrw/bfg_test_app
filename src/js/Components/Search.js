@@ -56,10 +56,6 @@ export default class Search extends React.Component
 		  		self.props.loadTopics(JSON.parse(xhr.response).items.slice(0, 5))
 		  		self.setState({enableSearch: false})
 		  	}
-		  	else
-		  	{
-		  		alert("Ошибка при выполнении запроса")
-		  	}
 		}		
 		
 	}

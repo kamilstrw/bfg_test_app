@@ -30,7 +30,7 @@ export default class List extends React.Component
 	{
 		return(
 			<div className="block">			
-				{this.props.questions.map((question, key)=><a href="#" className="list-item"><Question question={question} order={key} key={key} active={key == this.state.active}/></a>)}
+				{this.props.questions.map((question, key)=><Question question={question} order={key} key={key} active={key == this.state.active}/>)}
 			</div>
 		)
 	}
