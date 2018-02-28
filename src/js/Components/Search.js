@@ -34,7 +34,7 @@ export default class Search extends React.Component
 	}
 	componentDidMount()
 	{
-		//this.getAnswers();
+		this.getAnswers();
 	}
 	handleDateChange(date)
 	{
